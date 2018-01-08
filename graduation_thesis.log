@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2016.5.15)  6 JAN 2018 18:14
+This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2016.5.15)  9 JAN 2018 03:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,42 +7,32 @@ entering extended mode
 (./graduation_thesis.tex
 pLaTeX2e <2006/11/10> (based on LaTeX2e <2016/03/31> patch level 0)
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
-(/usr/local/texlive/2015/texmf-dist/tex/platex/jsclasses/jsarticle.cls
-Document Class: jsarticle 2014/02/07 okumura
-LaTeX Info: Redefining \rmfamily on input line 352.
-LaTeX Info: Redefining \sffamily on input line 355.
-LaTeX Info: Redefining \ttfamily on input line 358.
-\symmincho=\mathgroup4
-LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
-(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 423.
-LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 613.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 613.
-\fullwidth=\dimen118
-LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 7.68799pt on input line 760.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 7.68799pt on input line 760.
-\c@part=\count81
-\c@section=\count82
-\c@subsection=\count83
-\c@subsubsection=\count84
-\c@paragraph=\count85
-\c@subparagraph=\count86
-\@abstractbox=\box41
-\c@figure=\count87
-\c@table=\count88
+(/usr/local/texlive/2015/texmf-dist/tex/platex/base/jreport.cls
+Document Class: jreport 2006/06/27 v1.6 Standard pLaTeX class
+\c@@paper=\count81
+(/usr/local/texlive/2015/texmf-dist/tex/platex/base/jsize10.clo
+File: jsize10.clo 2006/06/27 v1.6 Standard pLaTeX file (size option)
+)
+\c@part=\count82
+\c@chapter=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\c@figure=\count89
+\c@table=\count90
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
-\js@tocl@width=\dimen119
-\@lnumwidth=\dimen120
-\bibindent=\dimen121
-LaTeX Info: Redefining \TeX on input line 1731.
-LaTeX Info: Redefining \LaTeX on input line 1757.
-LaTeX Info: Redefining \LaTeXe on input line 1782.
-\heisei=\count89
-) (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 677.
+\toclineskip=\dimen118
+\@lnumwidth=\dimen119
+\bibindent=\dimen120
+\heisei=\count91
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
@@ -70,17 +60,17 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )))
-\Gin@req@height=\dimen122
-\Gin@req@width=\dimen123
+\Gin@req@height=\dimen121
+\Gin@req@width=\dimen122
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/here/here.sty)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count90
+\c@float@type=\count92
 \float@exts=\toks16
-\float@box=\box42
+\float@box=\box41
 \@float@everytoks=\toks17
-\@floatcapt=\box43
+\@floatcapt=\box42
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write3
@@ -106,18 +96,18 @@ LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `bold'
 (/usr/local/texlive/2015/texmf-dist/tex/platex/japanese-otf/ajmacros.sty
 Package: ajmacros 2005/12/25 13:52 iNOUE Koich! <inoue@ma.ns.musashi-tech.ac.jp
 >
-\@tempcntc=\count91
-\@tempcntd=\count92
-\@tempcnte=\count93
-\@tempcntf=\count94
+\@tempcntc=\count93
+\@tempcntd=\count94
+\@tempcnte=\count95
+\@tempcntf=\count96
 ))
 (/usr/local/texlive/2015/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip43
-\fb@frw=\dimen124
-\fb@frh=\dimen125
-\FrameRule=\dimen126
-\FrameSep=\dimen127
+\fb@frw=\dimen123
+\fb@frh=\dimen124
+\FrameRule=\dimen125
+\FrameSep=\dimen126
 )
 (./graduation_thesis.aux)
 \openout1 = `graduation_thesis.aux'.
@@ -139,28 +129,55 @@ LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 13.
+(Font)              scaled to size 9.6222pt on input line 13.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 13.
+(Font)              scaled to size 9.6222pt on input line 13.
+
+第 1 章
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 18.
+(Font)              scaled to size 19.95642pt on input line 18.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 18.
+(Font)              scaled to size 19.95642pt on input line 18.
+LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <20.74> not available
+(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 18.
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 18.
+(Font)              scaled to size 19.95642pt on input line 18.
+LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <20.74> not available
+(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 18.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 18.
- [1
+(Font)              scaled to size 19.95642pt on input line 18.
+[1
 
-] Excluding 'comment' comment.
-Excluding 'comment' comment. (./graduation_thesis.aux) ) 
+
+] [2]
+第 2 章
+[3
+
+]
+第 3 章
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 13.85594pt on input line 39.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 13.85594pt on input line 39.
+LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 39.
+LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
+(Font)              scaled to size 13.85594pt on input line 39.
+LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 39.
+LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
+(Font)              scaled to size 13.85594pt on input line 39.
+[4
+
+] Excluding 'comment' comment. Excluding 'comment' comment.
+(./graduation_thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 2754 strings out of 493717
- 33499 string characters out of 6150720
- 92186 words of memory out of 5000000
- 6326 multiletter control sequences out of 15000+600000
- 9583 words of font info for 44 fonts, out of 8000000 for 9000
- 934 hyphenation exceptions out of 8191
- 27i,4n,22p,334b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 2660 strings out of 493717
+ 32861 string characters out of 6150720
+ 93878 words of memory out of 5000000
+ 6234 multiletter control sequences out of 15000+600000
+ 9732 words of font info for 45 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 27i,4n,22p,530b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on graduation_thesis.dvi (1 page, 340 bytes).
+Output written on graduation_thesis.dvi (4 pages, 6268 bytes).
