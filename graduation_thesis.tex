@@ -6,6 +6,29 @@
 \usepackage{otf}
 \usepackage{framed}
 
+\usepackage{listings}
+\renewcommand{\lstlistingname}{ソースコード}
+%\usepackage{color}
+\lstset{%
+  %language={C},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape\color[rgb]{0,0.5,0}},%
+  keywordstyle={\small\bfseries\color[rgb]{0,0,1}},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily\color[rgb]{1,0,1}},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
 % \title{タイトル}
 % \author{}
 % \date{}
@@ -142,9 +165,9 @@ SNSのシェアボタンを読み込む際に送信されたCookieから，個�
 
 \chapter{実装}
 \section{匿名掲示板}
-本研究で使用した匿名掲示板は，インターネット上にフリーソフトウェアとして公開されている，KENT-WEBのLIGHT BOARDである．この掲示板は，アカウント登録が不要で利用できる掲示板サイトである．名前の入力が必須となっているが，実名を入力する必要はなく，投稿毎に別の名前を入力することも可能であるため，匿名掲示板として利用することができる．
+本研究で使用した匿名掲示板は，インターネット上にフリーソフトウェアとして公開されているKENT-WEBのLIGHT BOARD(以下，LIGHT BOARD)である．この掲示板は，アカウント登録が不要で利用できる掲示板サイトである．名前の入力が必須となっているが，実名を入力する必要はなく，投稿毎に別の名前を入力することも可能であるため，匿名掲示板として利用することができる．
 
-本研究では，KENT-WEBのLIGHT BOARDのソースプログラムをダウンロードし，改変したものを，自身のサーバで公開し実験を行った．実験に利用した匿名掲示板サイトを図\ref{fig: bbs_screenshot}に示す．
+本研究では，LIGHT BOARDのソースプログラムをダウンロードし，改変したものを，自身のサーバで公開し実験を行った．実験で使用した匿名掲示板サイトを図\ref{fig: bbs_screenshot}に示す．
 
 \begin{figure}[H]
 	\begin{center}
@@ -154,11 +177,97 @@ SNSのシェアボタンを読み込む際に送信されたCookieから，個�
 	\label{fig: bbs_screenshot}
 \end{figure}
 
-掲示板への書込みの際に入力する項目は複数あるが，必須項目は書込みを行った人の名前，書込みのタイトル，本文，画像認証の4項目である．画像認証の項目には，入力欄の右側に画像として表示された数字を入力する．これはスパム投稿を防止するためのものである．先述の通り，名前は実名を入力する必要はないため，個人情報を一切入力せずに投稿できるため，利用者から見ると匿名掲示板のように利用することができる．
+掲示板への書込みの際に入力する項目は複数あるが，必須項目は書込みを行った人の名前，書込みのタイトル，本文，画像認証の4項目である．画像認証の項目には，入力欄の右側に画像として表示された数字を入力する．これはスパム投稿を防止するためのものである．先述の通り，名前は実名を入力する必要はないため，個人情報を一切入力せずに投稿できるため，利用者から見ると匿名掲示板のように利用することができる．必須項目を入力して投稿ボタンを押下すると投稿内容がサーバに送信され，書込み一覧に投稿内容が表示される．
 
+\subsection{シェアボタンの設置}
+LIGHT BOARDにはシェアボタンは設置されていない．本研究では，SNSのシェアボタンを利用して実験を行うため，シェアボタンを設置した．設置したSNSのシェアボタンは，Twitter，Facebook，Mastodonの3種類である．
 
+Mastodonのシステムは，匿名掲示板サイトと同様に，本研究の実験用に用意したサーバ上に置かれている．そのため，Mastodonのシェアボタンを読み込む際に送信されたCookieは，保存，解析することができる．送信されたCookieを保存し，そのCookieからMastodonのユーザを特定するプログラムを作成した．詳細は後述する．
 
+\subsection{同一ユーザ特定機能の実装}
+LIGHT BOARDは，書込み時に名前の入力が必須であるが，同一ユーザが複数の書込みを行う際に，それぞれ異なる名前をつけることが可能である．そのため，複数の書込みが同一人物によるものかどうかを判断することは難しい．そこで，本研究の実験で使用する匿名掲示板には，ユーザを追跡するためのCookieを付与する機能を実装した．
 
+初めて匿名掲示板にアクセスしてきたユーザには，サーバ側で生成したランダムな文字列をCookieとして付与する．2回目以降にアクセスしてきたユーザ(ブラウザ)は，初めてアクセスした際に付与されたCookieをサーバに送信するため，以前にアクセスしたことがあることがサーバ側でわかる．したがって，複数の書込みを行ったユーザは，書込みを行う際に送信しているCookieが同じであるため，同一人物による書込みであることがわかる．
+
+ユーザを追跡するためのCookieを付与する機能に該当する箇所をソースコード\ref{track}に示す．
+
+\begin{lstlisting}[caption=同一ユーザ特定機能,label=track]
+use String::Random;
+
+sub track {
+  my $host = $ENV{REMOTE_HOST};
+  my $addr = $ENV{REMOTE_ADDR};
+  my $time = time;
+  my ($min,$hour,$mday,$mon,$year,$wday) = (localtime($time))[1..6];
+  my @wk = ('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
+  my $date = sprintf("%04d/%02d/%02d(%s) %02d:%02d",
+        $year+1900,$mon+1,$mday,$wk[$wday],$hour,$min);
+  my $cookie = $ENV{HTTP_COOKIE};
+
+  my %cookie;
+  foreach (split(/;/, $cookie)) {
+    my ($key, $val) = split(/=/);
+    $key =~ s/\s//g;
+    $cookie{$key} = $val;
+  }
+
+  # もしトラッキング用のクッキーがセットされていればファイルに保存する
+  # 保存されていなければ新しく発行してセットさせる
+  if ($cookie{tracking_id}) {
+    open(DAT, ">> $cf{trackingfile}") or error("open err: $cf{trackingfile}");
+    my $new = "$date<>$cookie{tracking_id}<>$host<>$addr";
+    print DAT "$new\n";
+    close(DAT);
+  }
+  else {
+    my $random = String::Random->new();
+    my $tracking_id = $random->randregex("[a-zA-Z0-9]{64}");
+    print "Set-Cookie: $cf{tracking_id}=$tracking_id\n";
+  }
+}
+\end{lstlisting}
+
+サブルーチンtrackは，トラッキング(特定)用のCookieが送信されなければ新たにCookieを発行し，送信されていればそのCookieをファイルに保存する．発行するCookieは，String::Randomを使用して生成した乱数を値とする．String::Randomを使用して生成する乱数は，大文字，小文字を区別した64文字の英数字であるため，他のユーザと重複する可能性は極めて低いと考えられる．よって，匿名掲示板への書込みとトラッキング用のCookieを照らし合わせ，複数の書込みに対して同じCookieが送信されている場合，同一人物による書込みであると判断できる．
+
+\section{SNS}
+本研究では，SNSのアカウントを特定する実験を行うためのシステムとして，Mastodonを利用した．本来のサイバー犯罪においては，TwitterやFacebookなどの，世界的に利用されているSNSの運営と協力して犯人のアカウントを特定することを想定しているが，本研究の実験では，TwitterやFacebookのサーバ内の情報を閲覧することはできない．そこで，個人で運営することができる，Twitterに似たSNSであるMastodonを利用することで，シェアボタンを読み込む際に送信されるCookieからMastodonのアカウントを特定する実験を行った．送信されるCookieからアカウントを特定することは，TwitterやFacebookにおいても技術的に可能であるため，実際のサイバー犯罪ではTwitterやFacebookなどの運営と協力することで，犯人のアカウントが特定できるといえる．
+
+\subsection*{Mastodon}
+Mastodonとは，ドイツ人のEugen Rochko氏が，2016年2月に開発を開始した，分散型SNSのことである．Twitterに似た機能を持つSNSとして日本でも注目を集めている．オープンソースソフトウェアとしてGitHub上に公開されており，誰でも自由にプログラムを利用することができる．
+
+TwitterやFacebookとは異なり，Mastodonはプログラムを改変することができ，また改変したプログラムをサーバ上に置いて運営することもできる．GitHubからダウンロードしたMastodonのプログラムに，本研究の実験に必要な機能を実装して利用した．
+
+\subsection{シェアボタンの実装}
+匿名掲示板に設置するシェアボタンの実装を行った．/buttonというURLにアクセスすると，Mastodonのシェアボタンの画像だけが表示されるページを作成した．匿名掲示板では，HTMLのiframeタグを利用し，Mastodonのシェアボタンのページを読み込んでいる．
+
+ユーザ(ブラウザ)は，匿名掲示板にアクセスした際に，Mastodonのシェアボタンを読み込むためにMastodonのサーバにアクセスする．Mastodonのサーバにアクセスする際に，もしユーザがMastodonにログインしている状態であれば，そのログイン状態を保持するCookieをMastodonのサーバに送信するため，匿名掲示板にアクセスしたユーザとMastodonにログインしているユーザを結びつけることができる．
+
+\subsection{送信されたCookieを保存する機能の実装}
+匿名掲示板に設置されたシェアボタンを通してMastodonのサーバに送信されたCookieをデータベースに保存する機能を実装した．Mastodonのシェアボタンが読み込まれた際に，送信元の情報を取得し，データベースに保存している．保存する送信元の情報を表\ref{tb: buttons_database}に示す．
+
+\begin{table}[H]
+	\caption{保存した送信元のデータ}
+	\label{tb: buttons_database}
+	\begin{center}
+		\begin{tabular}{ | c | c | p{8cm} | } \hline
+			データ & データ型 & データ例 \\ \hline
+			IPアドレス & string & 133.19.169.6 \\ \hline
+			Cookie & text & remember\_user\_token=ABCD1234; \_session\_id=EFGH5678; \_mastodon\_session=IJKL9012  \\ \hline
+			リファラ & string & https://www.google.co.jp/ \\ \hline
+			ユーザエージェント & string &  Mozilla/5.0 (Macintosh; Intel Mac OS X 10\_12\_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36 \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+取得したデータは，IPアドレス，Cookie，リファラ，ユーザエージェントの4つである．データ型は，データベースに保存する際の型を意味する．データ例は，実際に保存されるデータの例を示している．
+
+データベースには，Cookieの他に送信元のIPアドレスやリファラ，ユーザエージェントを保存している．本研究においてはCookieのみの保存で十分であるが，Cookieが取得できなかった場合や，より詳細な情報を得るために，Cookie以外の情報も保存することにした．
+
+\subsection*{リファラ}
+リファラとは，どのページからアクセスしたかを示す情報である．例えば，Googleの検索結果からリンクをクリックしてサイトAにアクセスした場合，ブラウザがサイトAに対して送信するリファラはhttps://www.google.co.jp/である．リンクをクリックしてページを遷移した場合に限らず，iframeを使用して別のサイトを読み込んだ場合にもリファラは送信される．匿名掲示板のHTML内に含まれるiframeタグからMastodonのページを読み込んだ場合，Mastodonのサーバに送信されるリファラは，匿名掲示板のURLである．このように，リファラはどのページを経由してアクセスしてきたかがサーバ側にわかるため，Webサイトの解析ツールなどでしばしば用いられる．
+
+\subsection*{ユーザエージェント}
+ユーザエージェントとは，ブラウザがサーバに対して送信する情報であり，使用しているブラウザやOS，またその種類などの情報が含まれている．例えば表\ref{tb: buttons_database}のデータ例の場合，アクセスしてきたユーザは，macOS 10.12.6を使用しており，Google Chrome 62.0.3202.94でアクセスしていることがわかる．使用しているブラウザごとにWebページの表示を変えるなど，ユーザビリティの向上を目的に使用されることもあるが，サイバー犯罪においては，犯人の使用しているOSやブラウザがわかるといった利点がある．ただし，ユーザエージェントは詐称(本来とは異なる情報をサーバ側に送信)することも可能であるため，必ずしもユーザエージェントと同じOSやブラウザを使用しているとは限らない．
 
 
 
