@@ -242,7 +242,7 @@ TwitterやFacebookとは異なり，Mastodonはプログラムを改変するこ
 
 ユーザ(ブラウザ)は，匿名掲示板にアクセスした際に，Mastodonのシェアボタンを読み込むためにMastodonのサーバにアクセスする．Mastodonのサーバにアクセスする際に，もしユーザがMastodonにログインしている状態であれば，そのログイン状態を保持するCookieをMastodonのサーバに送信するため，匿名掲示板にアクセスしたユーザとMastodonにログインしているユーザを結びつけることができる．
 
-\subsection{送信されたCookieを保存する機能の実装}
+\subsection{送信されたCookieを保存する機能の実装}\label{sec: save_cookie}
 匿名掲示板に設置されたシェアボタンを通してMastodonのサーバに送信されたCookieをデータベースに保存する機能を実装した．Mastodonのシェアボタンが読み込まれた際に，送信元の情報を取得し，データベースに保存している．保存する送信元の情報を表\ref{tb: buttons_database}に示す．
 
 \begin{table}[H]
@@ -269,6 +269,25 @@ TwitterやFacebookとは異なり，Mastodonはプログラムを改変するこ
 \subsection*{ユーザエージェント}
 ユーザエージェントとは，ブラウザがサーバに対して送信する情報であり，使用しているブラウザやOS，またその種類などの情報が含まれている．例えば表\ref{tb: buttons_database}のデータ例の場合，アクセスしてきたユーザは，macOS 10.12.6を使用しており，Google Chrome 62.0.3202.94でアクセスしていることがわかる．使用しているブラウザごとにWebページの表示を変えるなど，ユーザビリティの向上を目的に使用されることもあるが，サイバー犯罪においては，犯人の使用しているOSやブラウザがわかるといった利点がある．ただし，ユーザエージェントは詐称(本来とは異なる情報をサーバ側に送信)することも可能であるため，必ずしもユーザエージェントと同じOSやブラウザを使用しているとは限らない．
 
+\subsection{ブラウザフィンガープリンティングの実装}
+Cookieやリファラ，ユーザエージェントなどはブラウザからサーバに送信される情報であるが，JavaScriptを使用することで，通常はサーバに送信されない情報を取得することができる．
+
+JavaScriptはブラウザ上で実行されるスクリプト言語であり，Webページの遷移を行うことなくHTMLの構成要素を書き換えたり，非同期でサーバと通信したりすることができる．近年ではほとんどのWebサイトにJavaScriptが使用されている．また，JavaScriptを使用して，ブラウザやデバイスの情報を取得することができる．このように，Cookieの代わりにJavaScriptを利用して，ユーザが使用するデバイスを調べて同一ユーザを特定する仕組みをブラウザフィンガープリンティングという．
+
+ブラウザフィンガープリンティングには，\ref{sec: save_cookie}項で説明したリファラやユーザエージェントなども含まれる．本研究の実験では，通常はサーバに送信されない情報である画面サイズを，JavaScriptを使用して取得することにした．JavaScriptを使用しないと取得できない情報を収集することで，より精度の高い特定手法を提案できると考えられるためである．
+
+サーバ側で，ブラウザから送信された画面サイズの情報を受け取るためのAPIエンドポイントを作成した．APIエンドポイントとは，APIにアクセスする際のURLのことである．本研究では，/api/v1/fingerprintというエンドポイントを作成し，このエンドポイントに対してHTTPのPOSTリクエストが送信された場合に，送信された情報をデータベースに保存する機能を実装した．
+
+JavaScriptでは，ユーザが使用するデバイスの画面サイズを取得し，サーバに送信するプログラムを実装した．該当するJavaScriptのプログラムをソースコード\ref{prog: fingerprint_js}に示す．
+
+\begin{lstlisting}[caption=画面サイズの取得とサーバへの送信,label=prog: fingerprint_js]
+var xhr = new XMLHttpRequest();
+xhr.open('POST', '/api/v1/fingerprint', true);
+xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+xhr.send('screen_size=' + screen.width + 'x' + screen.height);
+\end{lstlisting}
+
+JavaScriptでサーバにリクエストを送信する際には，XMLHttpRequest()を使用する．新しく生成したXMLHttpRequest()のオブジェクトを変数xhrに格納する．xhr.open()を使用して，HTTPメソッド(GETやPOSTなど)やリクエストを送信するURL(エンドポイント)を指定する．必要であればxhr.setRequestHeader()を使用してリクエストヘッダを設定することもできる．最後にxhr.send()を使用して，サーバに送信するデータを指定し，送信する．JavaScriptでデバイスの画面サイズを取得するにはscreen.width(画面横幅)とscreen.height(画面縦幅)を使用する．例えばscreen.widthで取得した値が1440，screen.heightで取得した値が900であった場合，'screen\_size=1440x900'という文字列をサーバに送信する．この情報を受け取ったサーバは，データベースにこのデータを文字列として保存する．
 
 
 

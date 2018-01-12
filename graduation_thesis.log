@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2016.5.15)  12 JAN 2018 04:37
+This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2016.5.15)  12 JAN 2018 23:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -275,15 +275,22 @@ Overfull \hbox (61.71054pt too wide) in paragraph at lines 252--259
  [] 
  []
 
-[10] [11] Excluding 'comment' comment. Excluding 'comment' comment. [12]
+[10] [11]
+Overfull \hbox (7.99985pt too wide) in paragraph at lines 290--291
+\JY1/hmc/m/n/10 が \OT1/cmr/m/n/10 1440\JY1/hmc/m/n/10 ， \OT1/cmr/m/n/10 scree
+n.height \JY1/hmc/m/n/10 で取得した値が \OT1/cmr/m/n/10 900 \JY1/hmc/m/n/10 で
+あ った場合 ， \OT1/cmr/m/n/10 'screen[]size=1440x900'
+ []
+
+[12] Excluding 'comment' comment. Excluding 'comment' comment. [13]
 (./graduation_thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 3926 strings out of 493717
- 51608 string characters out of 6150720
- 166832 words of memory out of 5000000
- 7471 multiletter control sequences out of 15000+600000
+ 3928 strings out of 493717
+ 51648 string characters out of 6150720
+ 166856 words of memory out of 5000000
+ 7473 multiletter control sequences out of 15000+600000
  13170 words of font info for 63 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  27i,10n,32p,840b,1594s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on graduation_thesis.dvi (12 pages, 40416 bytes).
+Output written on graduation_thesis.dvi (13 pages, 46188 bytes).
