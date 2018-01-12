@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2016.5.15)  12 JAN 2018 23:19
+This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2016.5.15)  13 JAN 2018 05:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -137,70 +137,70 @@ Package: listings 2015/06/04 1.6 (Carsten Heinz)
 (./graduation_thesis.aux)
 \openout1 = `graduation_thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 9.6222pt on input line 36.
+(Font)              scaled to size 9.6222pt on input line 39.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 9.6222pt on input line 36.
+(Font)              scaled to size 9.6222pt on input line 39.
 \c@lstlisting=\count105
 
 第 1 章
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 19.95642pt on input line 41.
+(Font)              scaled to size 19.95642pt on input line 44.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 19.95642pt on input line 41.
+(Font)              scaled to size 19.95642pt on input line 44.
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <20.74> not available
-(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 41.
+(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 19.95642pt on input line 41.
+(Font)              scaled to size 19.95642pt on input line 44.
 LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <20.74> not available
-(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 41.
+(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 19.95642pt on input line 41.
+(Font)              scaled to size 19.95642pt on input line 44.
 [1
 
 
 ] [2]
 第 2 章
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 74.
+(Font)              scaled to size 13.85594pt on input line 77.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 74.
+(Font)              scaled to size 13.85594pt on input line 77.
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 74.
+(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 77.
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 74.
+(Font)              scaled to size 13.85594pt on input line 77.
 LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 74.
+(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 77.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 74.
+(Font)              scaled to size 13.85594pt on input line 77.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 79.
+(Font)              scaled to size 11.54663pt on input line 82.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 79.
+(Font)              scaled to size 11.54663pt on input line 82.
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 79.
+(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 82.
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 79.
+(Font)              scaled to size 11.54663pt on input line 82.
 LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 79.
+(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 82.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 79.
+(Font)              scaled to size 11.54663pt on input line 82.
 [3
 
 ] [4] [5]
@@ -211,7 +211,7 @@ Excluding 'comment' comment. [6
 第 4 章
 File: figures/bbs_screenshot.png Graphic file (type bmp)
 <figures/bbs_screenshot.png>
-Overfull \hbox (42.88582pt too wide) in paragraph at lines 174--175
+Overfull \hbox (42.88582pt too wide) in paragraph at lines 177--178
  [] 
  []
 
@@ -219,78 +219,140 @@ Overfull \hbox (42.88582pt too wide) in paragraph at lines 174--175
 
 ]
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 8.65997pt on input line 194.
+(Font)              scaled to size 8.65997pt on input line 197.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 8.65997pt on input line 194.
+(Font)              scaled to size 8.65997pt on input line 197.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 195.
+(Font)              scaled to size 6.73553pt on input line 198.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 195.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 197.
+(Font)              scaled to size 6.73553pt on input line 198.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 200.
 
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 197.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 200.
  [8]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 217.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 220.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 217.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 220.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 223.
+(Font)              <9> on input line 226.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 223.
+(Font)              <6> on input line 226.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 223.
+(Font)              <5> on input line 226.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 5.77332pt on input line 223.
+(Font)              scaled to size 5.77332pt on input line 226.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 4.8111pt on input line 223.
+(Font)              scaled to size 4.8111pt on input line 226.
  [9]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 252.
+(Font)              <7> on input line 255.
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--255
+Underfull \hbox (badness 10000) in paragraph at lines 258--258
 []\OT1/cmr/m/n/10 remember[]user[]token=ABCD1234;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--255
+Underfull \hbox (badness 10000) in paragraph at lines 258--258
 []\OT1/cmr/m/n/10 session[]id=EFGH5678;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--257
+Underfull \hbox (badness 10000) in paragraph at lines 260--260
 \OT1/cmr/m/n/10 Ap-pleWe-bKit/537.36 (KHTML, like Gecko)
  []
 
 
-Overfull \hbox (61.71054pt too wide) in paragraph at lines 252--259
+Overfull \hbox (61.71054pt too wide) in paragraph at lines 255--262
  [] 
  []
 
 [10] [11]
-Overfull \hbox (7.99985pt too wide) in paragraph at lines 290--291
+Overfull \hbox (7.99985pt too wide) in paragraph at lines 293--294
 \JY1/hmc/m/n/10 が \OT1/cmr/m/n/10 1440\JY1/hmc/m/n/10 ， \OT1/cmr/m/n/10 scree
 n.height \JY1/hmc/m/n/10 で取得した値が \OT1/cmr/m/n/10 900 \JY1/hmc/m/n/10 で
 あ った場合 ， \OT1/cmr/m/n/10 'screen[]size=1440x900'
  []
 
-[12] Excluding 'comment' comment. Excluding 'comment' comment. [13]
+[12]
+Overfull \hbox (73.61333pt too wide) in paragraph at lines 307--307
+[]\OT1/cmtt/m/n/10 5<>2017/12/13(Wed) 18:01<>baz<><>piyo<>\JY1/hmc/m/n/10 うう
+う\OT1/cmtt/m/n/10 <><>133.19.169.6<><>1513155668<>[] 
+ []
+
+
+Overfull \hbox (73.61333pt too wide) in paragraph at lines 307--307
+[]\OT1/cmtt/m/n/10 4<>2017/12/13(Wed) 17:59<>bar<><>huga<>\JY1/hmc/m/n/10 いい
+い\OT1/cmtt/m/n/10 <><>133.19.169.6<><>1513155569<>[] 
+ []
+
+
+Overfull \hbox (73.61333pt too wide) in paragraph at lines 307--307
+[]\OT1/cmtt/m/n/10 3<>2017/12/13(Wed) 17:51<>foo<><>hoge<>\JY1/hmc/m/n/10 ああ
+あ\OT1/cmtt/m/n/10 <><>133.19.169.6<><>1513155083<>[] 
+ []
+
+
+Overfull \hbox (61.49661pt too wide) in paragraph at lines 307--307
+[]\OT1/cmtt/m/n/10 2<>2017/12/13(Wed) 17:51<>xxx<><>xxx<>test<><>133.19.169.6<>
+<>1513155081<>[] 
+ []
+
+
+Overfull \hbox (83.47461pt too wide) in paragraph at lines 307--307
+[]\OT1/cmtt/m/n/10 1<>2017/12/13(Wed) 17:50<>\JY1/hmc/m/n/10 なまえ\OT1/cmtt/m/
+n/10 <><>\JY1/hmc/m/n/10 無題\OT1/cmtt/m/n/10 <>\JY1/hmc/m/n/10 テスト\OT1/cmtt
+/m/n/10 <><>133.19.169.6<><>1513155034<>[] 
+ []
+
+[13] [14]
+Overfull \hbox (3.19945pt too wide) in paragraph at lines 360--361
+[]\JY1/hmc/m/n/10 暗号化されたセ ッシ ョン情報の復号には ， \OT1/cmr/m/n/10 rai
+ls-session-decoder \JY1/hmc/m/n/10 という \OT1/cmr/m/n/10 Node.js
+ []
+
+[15] [16]
+Underfull \hbox (badness 4229) in paragraph at lines 402--403
+[]\OT1/cmr/m/n/10 Japan Perl As-so-ci-a-tion\JY1/hmc/m/n/10 ， \OT1/cmr/m/n/10 
+Perl \JY1/hmc/m/n/10 の組み込み関数 \OT1/cmr/m/n/10 lo-cal-time \JY1/hmc/m/n/10
+ の翻訳
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
+[]\OT1/cmr/m/n/10 Rails \JY1/hmc/m/n/10 のセ ッシ ョン管理方法について
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
+\OT1/cmtt/m/n/10 <http://shindolog.hatenablog.com/entry/2014/11/02/164118>
+ []
+
+
+Overfull \hbox (57.91438pt too wide) in paragraph at lines 404--405
+[]\OT1/cmr/m/n/10 rails-session-decoder \OT1/cmtt/m/n/10 <https://www.npmjs.com
+/package/rails-session-decoder>
+ []
+
+Excluding 'comment' comment. Excluding 'comment' comment. [17
+
+]
 (./graduation_thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 3928 strings out of 493717
- 51648 string characters out of 6150720
- 166856 words of memory out of 5000000
- 7473 multiletter control sequences out of 15000+600000
- 13170 words of font info for 63 fonts, out of 8000000 for 9000
+ 3936 strings out of 493717
+ 51799 string characters out of 6150720
+ 166897 words of memory out of 5000000
+ 7480 multiletter control sequences out of 15000+600000
+ 13338 words of font info for 64 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 27i,10n,32p,840b,1594s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,10n,32p,920b,1594s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on graduation_thesis.dvi (13 pages, 46188 bytes).
+Output written on graduation_thesis.dvi (17 pages, 60904 bytes).

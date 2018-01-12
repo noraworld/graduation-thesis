@@ -6,6 +6,9 @@
 \usepackage{otf}
 \usepackage{framed}
 
+% 「関連図書」を「参考文献」に変換させる．
+\renewcommand{\bibname}{参考文献}
+
 \usepackage{listings}
 \renewcommand{\lstlistingname}{ソースコード}
 %\usepackage{color}
@@ -229,7 +232,7 @@ sub track {
 
 サブルーチンtrackは，トラッキング(特定)用のCookieが送信されなければ新たにCookieを発行し，送信されていればそのCookieをファイルに保存する．発行するCookieは，String::Randomを使用して生成した乱数を値とする．String::Randomを使用して生成する乱数は，大文字，小文字を区別した64文字の英数字であるため，他のユーザと重複する可能性は極めて低いと考えられる．よって，匿名掲示板への書込みとトラッキング用のCookieを照らし合わせ，複数の書込みに対して同じCookieが送信されている場合，同一人物による書込みであると判断できる．
 
-\section{SNS}
+\section{SNS}\label{sec: sns}
 本研究では，SNSのアカウントを特定する実験を行うためのシステムとして，Mastodonを利用した．本来のサイバー犯罪においては，TwitterやFacebookなどの，世界的に利用されているSNSの運営と協力して犯人のアカウントを特定することを想定しているが，本研究の実験では，TwitterやFacebookのサーバ内の情報を閲覧することはできない．そこで，個人で運営することができる，Twitterに似たSNSであるMastodonを利用することで，シェアボタンを読み込む際に送信されるCookieからMastodonのアカウントを特定する実験を行った．送信されるCookieからアカウントを特定することは，TwitterやFacebookにおいても技術的に可能であるため，実際のサイバー犯罪ではTwitterやFacebookなどの運営と協力することで，犯人のアカウントが特定できるといえる．
 
 \subsection*{Mastodon}
@@ -289,6 +292,74 @@ xhr.send('screen_size=' + screen.width + 'x' + screen.height);
 
 JavaScriptでサーバにリクエストを送信する際には，XMLHttpRequest()を使用する．新しく生成したXMLHttpRequest()のオブジェクトを変数xhrに格納する．xhr.open()を使用して，HTTPメソッド(GETやPOSTなど)やリクエストを送信するURL(エンドポイント)を指定する．必要であればxhr.setRequestHeader()を使用してリクエストヘッダを設定することもできる．最後にxhr.send()を使用して，サーバに送信するデータを指定し，送信する．JavaScriptでデバイスの画面サイズを取得するにはscreen.width(画面横幅)とscreen.height(画面縦幅)を使用する．例えばscreen.widthで取得した値が1440，screen.heightで取得した値が900であった場合，'screen\_size=1440x900'という文字列をサーバに送信する．この情報を受け取ったサーバは，データベースにこのデータを文字列として保存する．
 
+\section{実験用ツール}
+匿名掲示板とSNSの他に，本研究の実験に当たって必要となるツールの実装を行った．
+
+\subsection{UNIXタイム変換ツール}
+匿名掲示板サイトへの書込みは，ファイルに保存するように実装されている．投稿された書込みを保存したファイルの一部を以下に示す．
+
+\begin{verbatim}
+5<>2017/12/13(Wed) 18:01<>baz<><>piyo<>ううう<><>133.19.169.6<><>1513155668<>
+4<>2017/12/13(Wed) 17:59<>bar<><>huga<>いいい<><>133.19.169.6<><>1513155569<>
+3<>2017/12/13(Wed) 17:51<>foo<><>hoge<>あああ<><>133.19.169.6<><>1513155083<>
+2<>2017/12/13(Wed) 17:51<>xxx<><>xxx<>test<><>133.19.169.6<><>1513155081<>
+1<>2017/12/13(Wed) 17:50<>なまえ<><>無題<>テスト<><>133.19.169.6<><>1513155034<>
+\end{verbatim}
+
+投稿された各々の書込みは行ごとに保存されており，書込み内容に関する情報を，\verb|<>|で区切って管理されている．保存されている情報は，左から順に，書込み番号(最初の書込みを1とした連番)，投稿時刻，名前，書込みのタイトル，書込みの本文，IPアドレス，UNIXタイムスタンプである．
+
+本研究の実験では，匿名掲示板への書込み時刻とSNSのシェアボタンを読み込む際に送信されたCookieの保存時刻を照合して，書込みを行ったユーザのSNSのアカウントを特定している．書込み内容を管理するファイルには，書込み時刻が保存されているが，秒数までは記録されていない．実際に実験を行ったところ，秒単位でのアクセスが集中したため，書込み時刻からは，Cookieの保存時刻と照合することができなかった．そこで，書込み時刻の代わりにUNIXタイムスタンプを確認することで，Cookieの保存時刻との照合を行った．本研究では，UNIXタイムスタンプを，秒数を含めた時刻に変換するプログラムをPerlで実装した．そのプログラムをソースコード\ref{prog: unix_to_localtime}に示す．
+
+\begin{lstlisting}[caption=UNIXタイムスタンプ変換プログラム,label=prog: unix_to_localtime]
+print "localtime: ";
+my $num = <STDIN>;
+my $time = $num;
+my ($sec,$min,$hour,$mday,$mon,$year) = (localtime($time))[0..5];
+my $date = sprintf("%04d-%02d-%02d %02d:%02d:%02d",$year+1900,$mon+1,$mday,$hour,$min,$sec);
+print "timestamp: " . $date . "\n"
+\end{lstlisting}
+
+標準入力からUNIXタイムスタンプを受け取り，時刻に変換して出力するプログラムである．localtime関数は引数として受け取ったUNIXタイムスタンプを9つの要素の配列に変換する関数である\cite{localtime}．ソースコード\ref{prog: unix_to_localtime}では，localtime関数を使用して，入力されたUNIXタイムスタンプから，秒，分，時，日，月，年を取得し，それぞれ変数に格納している．sprintf関数を使用して表示する時刻のフォーマットを指定した後，標準出力を行っている．
+
+\subsection*{UNIXタイムスタンプ}
+UNIXタイムスタンプとは，1970年1月1日0時0分0秒を0として，その時刻からの経過秒数を数値で表したものである．たとえば，UNIXタイムスタンプが1513155034であった場合，1970年1月1日0時0分0秒からカウントして1513155034秒が経過した時点での時刻(2017年12月13日17時50分34秒)を表す．ファイルに保存された書込み時刻には秒数が記録されていないが，UNIXタイムスタンプから時刻に変換することで，書き込みがあった時刻の秒数を求めることができる．
+
+\subsection{Railsセッションデコーダ}
+本研究の実験に使用するSNSであるMastodonは，Ruby on Rails(以下，Rails)と呼ばれるWebアプリケーションフレームワークを用いて実装されている．Webアプリケーションフレームワークとは，Webアプリケーションにおける一般的な機能を提供する雛形のことである．一般的なWebアプリケーションでは，Webサイトのフォームから入力された情報をデータベースに保存したり，データベースから取得した内容を表示したり，データベースに存在するデータを更新・削除したりする機能がある．それらの機能を，Webアプリケーションの開発者が1から実装することは，開発コストがかかるだけでなく，セキュリティに十分な注意を払わなければ脆弱性を生み出す危険性がある．Webアプリケーションフレームワークを利用すれば，少ない開発コストで，それらの機能を持ったWebアプリケーションを構築することができる．また，多くのWebアプリケーションフレームワークは，オープンソースソフトウェアとしてインターネット上に公開されているため，Webの脆弱性に対する対策が行われている．
+
+ブラウザがWebサービスにログインしている情報は，通常，Cookieに保存されている．ログインに成立すると，サーバはブラウザに，ログイン状態を保持するセッション情報をCookieとして保存するように指示する．以降，セッション情報が含まれるCookieをブラウザがサーバに送信することで，サーバは，アクセスしてきたユーザがログイン済みであると認識する．
+
+したがって，SNSのシステムにおいて，ブラウザから送信されたCookieを調べることで，そのCookieを送信してきたユーザのSNSのアカウントを特定することができる．\ref{sec: sns}節で述べたように，本研究で使用するMastodonに送信されたCookieはデータベースに保存される．ところが，Rails 4.0以降では，セッション情報が暗号化されてCookieに保存されている\cite{rails_session_is_encrypted}ため，そのままではMastodonのアカウントを特定することができない．そこで，データベースに保存されたCookieの中に含まれるセッション情報を複合するプログラムをNode.jsで実装した．そのプログラムをソースコード\ref{prog: rails_session_decoder}に示す．
+
+\begin{lstlisting}[caption=Railsセッションデコーダ,label=prog: rails_session_decoder]
+const rsd = require('rails-session-decoder');
+const read = require('readline-sync');
+const fs = require('fs');
+
+var cookie = read.question('Input your cookie: ');
+var key = read.question('Input your secret key: ');
+
+console.log('');
+
+var decoder = rsd(key);
+
+decoder.decodeCookie(cookie, (err, data) => {
+  if (data) {
+    console.log(data);
+  }
+  else {
+    console.log(err);
+  }
+});
+\end{lstlisting}
+
+暗号化されたセッション情報を復号するには，セッション情報を含むCookieとRails(Mastodon)システム内で管理されている秘密鍵が必要である．セッション情報を含むCookieはデータベースに保存されているものを使用し，秘密鍵はRails(Mastodon)の設定ファイルに書かれているものを使用する．
+
+ソースコード\ref{prog: rails_session_decoder}は，標準入力から，暗号化されたセッション情報を含むCookieと，秘密鍵を受け取り，暗号化されたセッション情報の復号を行う．正しく復号できた場合は復号されたセッション情報を出力し，正しく復号できなかった場合はエラーを出力する．
+
+暗号化されたセッション情報の復号には，rails-session-decoderというNode.jsのパッケージ(ライブラリ)を利用した\cite{npm_rails_session_decoder}．rails-session-decoderを読み取ったオブジェクトに対して，暗号化されたセッション情報を含むCookieと秘密鍵を渡してdecodeCookieメソッドを呼び出すと，暗号化されたセッション情報が復号される．ユーザ(ブラウザ)から送信されたCookieがセッション情報を含んでいれば，復号に成功する．
+
+\newpage
 
 
 
@@ -320,9 +391,16 @@ JavaScriptでサーバにリクエストを送信する際には，XMLHttpReques
 
 
 
-
-
-
+% ========== 参考文献 ==========
+% 参考文献の引用例(ぶっちゃけ色んな形式があるので後で直せば良さそう)
+% \bibitem{引用する番号を付与する際のキーとなる文字列} 著者名(団体名)，ウェブサイトの題名 \verb|<URL>| (最終閲覧日: xxxx年xx月xx日）
+% \bibitem{test} 特定非営利活動法人デジタル・フォレンジック研究会，デジタルフォレンジックとは \verb|<https://digitalforensic.jp/home/what-df/>| (最終閲覧日: 2015年12月24日)
+\begin{thebibliography}{n}
+\bibitem{localtime} Japan Perl Association，Perlの組み込み関数 localtime の翻訳 \verb|<http://perldoc.jp/func/localtime>| (最終閲覧日: 2018年1月13日)
+\bibitem{rails_session_is_encrypted} Railsのセッション管理方法について \verb|<http://shindolog.hatenablog.com/entry/2014/11/02/164118>| (最終閲覧日: 2018年1月13日)
+\bibitem{npm_rails_session_decoder} rails-session-decoder \verb|<https://www.npmjs.com/package/rails-session-decoder>| (最終閲覧日: 2018年1月13日)
+\end{thebibliography}
+% ============================
 
 
 
