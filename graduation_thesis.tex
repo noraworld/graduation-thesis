@@ -295,7 +295,7 @@ JavaScriptでサーバにリクエストを送信する際には，XMLHttpReques
 \section{実験用ツール}
 匿名掲示板とSNSの他に，本研究の実験に当たって必要となるツールの実装を行った．
 
-\subsection{UNIXタイム変換ツール}
+\subsection{UNIXタイム変換ツール}\label{sec: unix_time_translation}
 匿名掲示板サイトへの書込みは，ファイルに保存するように実装されている．投稿された書込みを保存したファイルの一部を以下に示す．
 
 \begin{verbatim}
@@ -324,7 +324,7 @@ print "timestamp: " . $date . "\n"
 \subsection*{UNIXタイムスタンプ}
 UNIXタイムスタンプとは，1970年1月1日0時0分0秒を0として，その時刻からの経過秒数を数値で表したものである．たとえば，UNIXタイムスタンプが1513155034であった場合，1970年1月1日0時0分0秒からカウントして1513155034秒が経過した時点での時刻(2017年12月13日17時50分34秒)を表す．ファイルに保存された書込み時刻には秒数が記録されていないが，UNIXタイムスタンプから時刻に変換することで，書き込みがあった時刻の秒数を求めることができる．
 
-\subsection{Railsセッションデコーダ}
+\subsection{Railsセッションデコーダ}\label{sec: rails_session_decoder}
 本研究の実験に使用するSNSであるMastodonは，Ruby on Rails(以下，Rails)と呼ばれるWebアプリケーションフレームワークを用いて実装されている．Webアプリケーションフレームワークとは，Webアプリケーションにおける一般的な機能を提供する雛形のことである．一般的なWebアプリケーションでは，Webサイトのフォームから入力された情報をデータベースに保存したり，データベースから取得した内容を表示したり，データベースに存在するデータを更新・削除したりする機能がある．それらの機能を，Webアプリケーションの開発者が1から実装することは，開発コストがかかるだけでなく，セキュリティに十分な注意を払わなければ脆弱性を生み出す危険性がある．Webアプリケーションフレームワークを利用すれば，少ない開発コストで，それらの機能を持ったWebアプリケーションを構築することができる．また，多くのWebアプリケーションフレームワークは，オープンソースソフトウェアとしてインターネット上に公開されているため，Webの脆弱性に対する対策が行われている．
 
 ブラウザがWebサービスにログインしている情報は，通常，Cookieに保存されている．ログインに成立すると，サーバはブラウザに，ログイン状態を保持するセッション情報をCookieとして保存するように指示する．以降，セッション情報が含まれるCookieをブラウザがサーバに送信することで，サーバは，アクセスしてきたユーザがログイン済みであると認識する．
@@ -367,7 +367,7 @@ decoder.decodeCookie(cookie, (err, data) => {
 
 
 \chapter{実験}
-\section{実験内容}
+\section{実験手順}
 本研究では，SNSのシェアボタンを読み込む際に送信されるCookieから，SNSのアカウントを特定する実験を行った．本実験の目的は，Webサイトに設置されているSNSシェアボタンを利用した，SNSのアカウントの特定可能性を検証するためである．本実験では，TwitterやFacebookに代わるSNSとして，Mastodonを利用した．
 
 本実験を被験者として，立命館大学情報理工学部サイバーセキュリティ研究室に所属する学部生15名に協力を仰いだ．被験者15名には，本研究で用意した匿名掲示板とSNSサイトに対して，以下の事柄を実行してもらった．
@@ -417,16 +417,87 @@ Mastodonアカウントにログインした状態で書込みを行わなけれ
 
 また，Mastodonアカウントにログインした状態であっても，ログインしたものとは異なる端末・ブラウザを使用して書込みを行った場合も同様に，ログイン状態を保持するCookieが送信されない．そのため，ログインしたものと同じ端末・ブラウザを使用するよう指示した．また，ログインしたものと同じブラウザを使用したとしても，ブラウザのシークレットモード(プライベートブラウジングモード)を使用して書込みを行わないよう指示した．シークレットモードでは，閲覧履歴やCookieがリセットされた状態でブラウジングを行うようになるためである．ただし，シークレットモードでもう一度アカウントにログインし直した場合はこの限りではない．
 
+\section{実験内容}\label{sec: exp_flow}
+% 実験結果の前に，アカウントを特定するまでの流れを書こう．データベースからCookieを引っ張り出してきて，セッションデコーダにかけて復号して，得られたユーザIDからアカウント名を特定する流れ．
+匿名掲示板に投稿された書込みすべてに対して，書込みを行ったユーザのMastodonのアカウントを特定した．アカウントを特定するまでの流れを以下に示す．
+
+\begin{enumerate}
+\item{書込みとCookieの紐付け}
+\item{Cookieに含まれるセッション情報の復号}
+\item{アカウント名の検索}
+\end{enumerate}
+
+\subsection{書込みとCookieの紐付け}
+\ref{sec: unix_time_translation}項で示したように，匿名掲示板に投稿された書込みの書込み時刻をUNIXタイムスタンプから算出する．書込みが投稿された直後にSNSのシェアボタンが読み込まれCookieが送信されるはずである．したがって，書込みの直後に送信されたCookieを調べればよい．
+
+匿名掲示板へ書き込まれた時刻が2017年12月13日17時51分21秒であったとする．その直後に送信されたCookieをMastodonのデータベースから検索する．その際に実行したSQLをソースコード\ref{prog: post_search_sql}に示す．
+
+\begin{lstlisting}[caption=2017年12月13日17時50分34秒にあった書込みに対応するCookieを検索するSQL,label=prog: post_search_sql]
+SELECT * FROM buttons WHERE created_at BETWEEN '2017-12-13 08:51:00' AND '2017-12-13 08:52:00' ORDER BY created_at;
+\end{lstlisting}
+
+挿入された日時が，2017年12月13日17時51分00秒から2017年12月13日17時52分00秒までの期間であるレコードを，buttonsテーブルから検索し，挿入された日時順に並び替えて表示するSQLである．ただし，Mastodonで使用するデータベースでは，時刻が日本標準時ではなくグリニッジ標準時として保存されてしまっていたため，実際の時刻より9時間前の時刻で検索している．
+
+buttonsテーブルには，Mastodonのシェアボタンを読み込み際に送信されたCookieが保存されている．保存されているデータは表\ref{tb: buttons_database}の通りである．Railsで扱うデータベースには，すべてのテーブルにレコードの作成日時と更新日時が自動で追加される．ソースコード\ref{prog: post_search_sql}で使用しているcreated\_atはレコードの作成日時に該当する．検索結果は，指定した期間内のレコードの作成日時順に，該当するレコードを表示している．つまり，書込みがあった時刻に近い範囲の時刻で送信されているCookieをすべて表示するSQLとなっている．
+
+表示された複数のレコードのうち，書込み時刻よりも後であり，最も書込み時刻に近いレコードを調べる．そのレコードに保存されているIPアドレスやユーザエージェントが，書込みのものと一致していれば，そのレコードが書込みに対応するものであると判断する．なお，匿名掲示板側のIPアドレスは匿名掲示板への書込みが保存されたファイル内に保存されているもの，ユーザエージェントはWebサーバのログに保存されているものを利用した．
+
+\subsection{Cookieに含まれるセッション情報の復号}
+書込み情報と一致したレコードからCookieを調べる．例として，2017年12月13日17時51分21秒に投稿された書込みと一致するレコードのCookieは以下の通りである．
+
+\begin{verbatim}
+_mastodon_session=TzhBbE5SWVBjcXBmakgzQlZFclpqRExDMFB3WXJiSFdk
+emQ4VkI3TThaNUlENmJGeGpOOVR4azJSVVVZUFVjQVlKL1pack1VTzRNdkpvcF
+h4c2o1czFPVkliR3dpdHJpZ3Azb0VneEhZUVp2d1ZEbDE0MnJEZ2srbEk1L2ZJ
+Q2ZPc1ZWU09DL0VDcVJhNG15aTZmWTZQMDhDc2pKS2VUdWdITmR1TWFqRGZOdW
+hoc0gxeFhaYU5GWTlMY1BvZ29uK1V2RE1KSnFaU2Vvb28wS2dFVHBDS3ZXRWhR
+S0FaVlhZQnM2NUJ4ZjNkTEdaNUVFek9pWGxyaUtZN01kWDBFTzBxa1FjTkdXU2
+5IaklqVlUzeUs2MGVjV1hoNm8xdHFWWkxWcnhjeDU1UDdJNXVkZEpiNUVUUmJT
+ekdTSkljaDhyT2dGM092ZVprbGcrS0pLR0JUZjg1dlpSNG0zNmRDY2lHVnB2WT
+hYMy9ScC8rWk8zWjBIenZ3bmJJTGJhRDRRbnJpQUtlQXNTRHFDTDNQQjUyVmF6
+UT09LS1JTG00Wlc4b0g5Vk9rZWJwUlpqUTlBPT0%3D--7c1f476c80f45229f4
+f5b5f18d260e266f8f5930; _session_id=IjA5ZGMxYmQ5ZDIzOTFlNzJjMz
+dlNDFmYzhlMGUyNWQxIg%3D%3D--f749083440458553e2dfe0b45f1a226e6d
+5407e5; remember_user_token=W1szXSwiJDJhJDEwJDBtekVCUXo0cFR4bT
+hCNVI5dDFhT2UiLCIxNTEzMTU0NzkwLjgxMDU4MTciXQ%3D%3D--0e2f0c3b4c
+71e16a9828e0d0424cfe7545ba92df
+\end{verbatim}
+
+Cookieは，名前と値のペアをイコール記号で結んだ形式となっている．左辺が名前で，右辺が値である．複数のペアを一つのCookieにまとめる場合はセミコロンで区切る．
+
+上記Cookieは，\verb|_mastodon_session|と\verb|_session_id|と\verb|remember_user_token|の3つで構成されている．ログイン状態のユーザ(ブラウザ)がMastodonに送信するCookieはこの3つの名前を持つ値であり，このうち，ログイン状態を保持するセッション情報を持つCookieは\verb|_mastodon_session|である．
+
+\verb|_mastodon_session|を，\ref{sec: rails_session_decoder}項で説明したRailsセッションデコーダを使用して復号すると，以下の情報が得られる．
+
+\begin{verbatim}
+{
+  "session_id":"fb177bece158591f43126c67987159f1",
+  "warden.user.user.key":[[3],"$2a$10$0mzEBQz4pTxm8B5R9t1aOe"],
+  "user_return_to":"/button?text=%e6%8e%b2%e7%a4%ba%e6%9d%bf%e3
+  %81%8b%e3%82%89%e3%81%93%e3%82%93%e3%81%ab%e3%81%a1%e3%81%af%
+  ef%bc%81",
+  "_csrf_token":"WgC1EbiMg3YV1VgqJNwCNkgw6ldgRwS1Qkz3ckUm/SM="
+}
+\end{verbatim}
+
+得られた情報が，Mastodonのシェアボタンを読み込む際に送信されたCookieから復号されたセッション情報である．このセッション情報のうち，\verb|warden.user.user.key|の中の3という数値が，Cookieを送信してきたユーザのユーザIDである．
+
+\subsection{アカウント名の検索}
+得られたユーザIDをもとにMastodonのデータベースで検索を行う．ユーザIDが3であるユーザを検索するSQLをソースコード\ref{prog: user_search_sql}に示す．
+
+\begin{lstlisting}[caption=ユーザIDが3であるユーザを検索するSQL,label=prog: user_search_sql]
+SELECT * FROM users WHERE id = 3;
+\end{lstlisting}
+
+ユーザに関する情報はusersテーブルに保存されている．ここには，アカウント登録時に入力したメールアドレスや暗号化されたパスワードなどのユーザ情報が保存されている．さらに，メールアドレスや暗号化されたパスワードとともにアカウントIDが保存されている．ユーザIDが3であるユーザのアカウントIDは3であることがわかった．この結果をもとにアカウントIDが3であるアカウントを検索するSQLをソースコード\ref{prog: account_search_sql}に示す．
+
+\begin{lstlisting}[caption=アカウントIDが3であるアカウントを検索するSQL,label=prog: account_search_sql]
+SELECT * FROM accounts WHERE id = 3;
+\end{lstlisting}
+
+アカウントに関する情報はaccountsテーブルに保存されている．accountsテーブルには，アカウント登録時のユーザ名が保存されている．\ref{sec: exp_flow}に示す一連の作業を実行すると，結果として，匿名掲示板に書込みを投稿した者のMastodonのユーザ名を特定することができる．ユーザ名を特定することで，そのアカウントに登録されているメールアドレスなどを特定することができる．実際のサイバー犯罪でこの手法を活用する場合，犯人のTwitterやFacebookなどのアカウントを特定することで，本実験以上に犯人を特定する情報が得られることが期待できる．
+
 \section{実験結果}
-
-
-
-
-
-
-
-
-
 
 
 
