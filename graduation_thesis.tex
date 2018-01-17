@@ -493,7 +493,7 @@ SELECT * FROM accounts WHERE id = 3;
 
 アカウントに関する情報はaccountsテーブルに保存されている．accountsテーブルには，アカウント登録時のユーザ名が保存されている．\ref{sec: exp_flow}に示す一連の作業を実行すると，結果として，匿名掲示板に書込みを投稿した者のMastodonのユーザ名を特定することができる．ユーザ名を特定することで，そのアカウントに登録されているメールアドレスなどを特定することができる．実際のサイバー犯罪でこの手法を活用する場合，犯人のTwitterやFacebookなどのアカウントを特定することで，本実験以上に犯人を特定する情報が得られることが期待できる．
 
-\section{実験結果}
+\section{実験結果}\label{sec: exp_result}
 本実験の被験者15名に本実験に協力してもらったところ，計32件(自身による実験概要の説明のための書込みを除く)の書込みがあった．32件の書込みすべてに対して，\ref{sec: exp_flow}節で説明した手順を実行してアカウントの特定を行った．その結果を表\ref{tb: exp_result}に示す．
 
 
@@ -589,13 +589,90 @@ SELECT * FROM accounts WHERE id = 3;
 
 
 
-%\chapter{評価と考察}
+
+
+\chapter{評価と考察}
 % 考察には，以下のことを書く．
 % ほとんど学内のWi-Fiからだけど，特定できた
 % 匿名掲示板に異なる名前で投稿していても，特定できた
 % 同じユーザが別のネットワークから書き込んでも，特定できた
 % 特定できなかったのは，ブラウザの機能や拡張機能によるものである
-% 特定できない書込みは6件あったが，同一ユーザによる書込みであることは特定でき，結果として2名の書込みであることまではわかった
+
+\section{考察}
+% 特定できなかったのは，ブラウザの機能や拡張機能によるものである
+\subsection{Cookieが送信されない原因に対する考察}
+本実験では，被験者15名のうち，13名のアカウントを特定することができたが，残り2名を特定することができなかった．その原因は，\ref{sec: exp_result}節で述べた通り，Cookieが送信されていなかったためである．アカウントにログインしており，シェアボタンを読み込むアクセスがあるにもかかわらず，Cookieが送信されなかった要因について考察する．
+
+\subsubsection{サードパーティCookieのブロック}
+サードパーティCookieとは，デジタルマーケティングラボの記述を引用すると「ユーザーが訪問しているWebサイトのドメイン以外から発行されているCookieのこと」である\cite{what_is_third_party_cookie}．Cookieは，ブラウザがWebサーバのリソースにアクセスする際に送信されるが，閲覧するWebサイトとは異なるドメインのサーバに送信するCookieのことをサードパーティCookieと呼ぶ．閲覧するWebサイトのサーバに送信するCookieは，サードパーティCookieに対してファーストパーティCookieと呼ばれる．
+
+本実験では，匿名掲示板サイトにSNSのシェアボタンが設置されているため，匿名掲示板にアクセスすると，ブラウザはSNSのシェアボタンを読み込むためにSNSのサイトにもアクセスすることになる．SNSのシェアボタンを読み込む際に，SNSのサイト用のCookieがSNSのサーバに送信されるが，ここで送信されているSNSのCookieは，本来アクセスしているWebサイト(匿名掲示板)とは異なるサイトのCookieであるため，サードパーティCookieである．
+
+サードパーティCookieは，Webサイトに埋め込まれた広告などで使用され，ユーザの趣向に合った広告を表示するなど，ユーザビリティ向上の面で利用されることもある．一方で，サードパーティCookieは，どのようなWebサイトに送信されているかがユーザにとってわかりにくく，知らないうちにユーザの閲覧情報を収集されてしまう危険性があるため，プライバシー問題が懸念される\cite{third_party_cookie_is_danger}．
+
+こうしたプライバシー問題の観点から，Webユーザは，サードパーティCookieをブロックする(送信しない)ことができる．最も簡単な方法は，ブラウザの設定を変更することである．近年のWebブラウザでは，サードパーティCookieをブロックする機能が実装されている．Google Chrome 63の場合，chrome://settings/content/cookiesにアクセスし，「サードパーティの Cookie をブロックする」という項目を有効にするとサードパーティCookieが送信されなくなる．
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=130mm]{figures/disable_third_party_cookie_on_chrome.png}
+	\end{center}
+	\caption{Google ChromeにおけるサードパーティCookieのブロック}
+	\label{fig: disable_third_party_cookie_on_chrome}
+\end{figure}
+
+\noindent
+Firefox 57の場合，about:preferences\#privacyにアクセスし，履歴セクションの項目を「記憶させる履歴を詳細設定する」に変更し，「サードパーティ Cookie の保存」の項目を「常に拒否」に変更するとサードパーティCookieが送信されなくなる\cite{how_to_disable_third_party_cookie_on_firefox}．
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=130mm]{figures/disable_third_party_cookie_on_firefox.png}
+	\end{center}
+	\caption{FirefoxにおけるサードパーティCookieのブロック}
+	\label{fig: disable_third_party_cookie_on_firefox}
+\end{figure}
+
+また，サードパーティCookieをブロックする拡張機能やアドオンも存在する．たとえば，Ghosteryはトラッキングツールや解析ツールをブロックする拡張機能として有名であり，Google ChromeやFirefoxのほか，ほとんどのモダンWebブラウザで利用可能である．Ghosteryをインストールしたブラウザで匿名掲示板にアクセスして，Mastodonインスタンスのデータベースを調べたところ，Cookieが送信されていないことがわかった．Ghosteryを無効にして再度確認するとサードパーティCookieが送信されたことから，GhosteryはサードパーティCookieのブロック機能が実装されていることがわかる．
+
+このように，ユーザ側でサードパーティCookieをブロックしていると，本研究の手法ではSNSのアカウントを特定できないことがわかった．本実験おいて，アカウントを特定することができなかった被験者2名は，いずれもブラウザの設定でサードパーティCookieをブロックする機能を有効にしていた．Mastodonアカウントにログインした状態にもかかわらずCookieが送信されなかったのは，ブラウザによるサードパーティCookieのブロックが原因であると考えられる．
+
+% 匿名掲示板に異なる名前で投稿していても，特定できた
+% 同じユーザが別のネットワークから書き込んでも，特定できた
+\subsection{異なる情報を送信した場合の特定可能性における考察}
+IPアドレスによる特定の場合，様々なネットワークに切り替えて犯行に及ぶ犯人を特定するのは非常に困難である．一方で，Cookieの送信に関しては，ブラウザがサーバにアクセスする度に同意を求めるものではないため，ユーザがCookieの送信を意識することはあまり多くないと考えられる．また，過度なCookieのブロックは利便性を損なうため，ブラウジングにおいてすべてのCookieをブロックするユーザはほとんどいないと考えられる．
+
+本研究では，Cookieの中でも，情報を収集されていることが気づきにくいとされるサードパーティCookieに着目し，実験を行った．実験の結果，サードパーティCookieがブロックされない限り，この手法におけるサイバー犯罪の犯人の特定可能性(本実験ではSNSアカウントの特定可能性)が十分に期待できると考えられる．本実験では，匿名掲示板に書き込む際の名前を変更したり，実験の途中で異なるネットワークに切り替えたりする被験者がいたが，その場合でもCookieから特定することが可能であった．サードパーティCookieの送信は気づきにくいため，実際のサイバー犯罪において，用心深い犯人であっても，不注意によりサードパーティCookieを送信する場合が考えられる．一度でもCookieの送信が確認されれば，犯人を特定できる可能性は十分あるといえる．
+
+% ほとんど学内のWi-Fiからだけど，特定できた
+\subsection{同一ネットワーク上の特定可能性における考察}
+本実験は学内で行ったため，学内ネットワークを使用する被験者が比較的多かった．
+%ネットワークは組織レベルだけど，Cookieはブラウザ・端末レベルだからより細かい追跡ができる的なことをメリット的な感じで書きたい．ほとんど学内のWi-Fiからのアクセスでも特定できたことを何かしらのメリットとして書く
+
+% 考察を書きましょう！
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -613,6 +690,9 @@ SELECT * FROM accounts WHERE id = 3;
 \bibitem{rails_session_is_encrypted} Railsのセッション管理方法について \verb|<http://shindolog.hatenablog.com/entry/2014/11/02/164118>| (最終閲覧日: 2018年1月13日)
 \bibitem{npm_rails_session_decoder} rails-session-decoder \verb|<https://www.npmjs.com/package/rails-session-decoder>| (最終閲覧日: 2018年1月13日)
 \bibitem{invite_system} Release v2.1.0 \UTF{00B7} tootsuite/mastodon \verb|<https://github.com/tootsuite/mastodon/releases/tag/v2.1.0>| (最終閲覧日: 2018年1月14日)
+\bibitem{what_is_third_party_cookie} デジタルマーケティングラボ，サードパーティクッキー（3rd Party Cookie）とは \verb|https://dmlab.jp/words/e024.html| (最終閲覧日: 2018年1月18日)
+\bibitem{third_party_cookie_is_danger} ASCII.jp，「サードパーティクッキー」が危険な理由を正しく知りましょう \verb|http://ascii.jp/elem/000/000/654/654929/| (最終閲覧日: 2018年1月18日)
+\bibitem{how_to_disable_third_party_cookie_on_firefox} Firefox ヘルプ，サードパーティ Cookie を禁止する \verb|https://support.mozilla.org/ja/kb/disable-third-party-cookies| (最終閲覧日: 2018年1月18日)
 
 \end{thebibliography}
 % ============================
