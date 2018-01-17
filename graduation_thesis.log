@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2016.5.15)  17 JAN 2018 20:02
+This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2016.5.15)  17 JAN 2018 21:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -196,29 +196,29 @@ LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 ] [2]
 第 2 章
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 78.
+(Font)              scaled to size 13.85594pt on input line 77.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 78.
+(Font)              scaled to size 13.85594pt on input line 77.
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 78.
+(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 77.
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 78.
+(Font)              scaled to size 13.85594pt on input line 77.
 LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 78.
+(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 77.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 78.
+(Font)              scaled to size 13.85594pt on input line 77.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 83.
+(Font)              scaled to size 11.54663pt on input line 82.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 83.
+(Font)              scaled to size 11.54663pt on input line 82.
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 83.
+(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 82.
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 83.
+(Font)              scaled to size 11.54663pt on input line 82.
 LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 83.
+(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 82.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 83.
+(Font)              scaled to size 11.54663pt on input line 82.
 [3
 
 ] [4] [5]
@@ -229,7 +229,7 @@ Excluding 'comment' comment. [6
 第 4 章
 File: figures/bbs_screenshot.png Graphic file (type bmp)
 <figures/bbs_screenshot.png>
-Overfull \hbox (42.88582pt too wide) in paragraph at lines 178--179
+Overfull \hbox (42.88582pt too wide) in paragraph at lines 173--174
  [] 
  []
 
@@ -237,102 +237,102 @@ Overfull \hbox (42.88582pt too wide) in paragraph at lines 178--179
 
 ]
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 8.65997pt on input line 198.
+(Font)              scaled to size 8.65997pt on input line 193.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 8.65997pt on input line 198.
+(Font)              scaled to size 8.65997pt on input line 193.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 199.
+(Font)              scaled to size 6.73553pt on input line 194.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 199.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 201.
+(Font)              scaled to size 6.73553pt on input line 194.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 196.
 
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 201.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 196.
  [8]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 221.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 216.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 221.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 216.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 227.
+(Font)              <9> on input line 222.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 227.
+(Font)              <6> on input line 222.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 227.
+(Font)              <5> on input line 222.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 5.77332pt on input line 227.
+(Font)              scaled to size 5.77332pt on input line 222.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 4.8111pt on input line 227.
+(Font)              scaled to size 4.8111pt on input line 222.
  [9]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 256.
+(Font)              <7> on input line 251.
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--259
+Underfull \hbox (badness 10000) in paragraph at lines 254--254
 []\OT1/cmr/m/n/10 remember[]user[]token=ABCD1234;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--259
+Underfull \hbox (badness 10000) in paragraph at lines 254--254
 []\OT1/cmr/m/n/10 session[]id=EFGH5678;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--261
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
 \OT1/cmr/m/n/10 Ap-pleWe-bKit/537.36 (KHTML, like Gecko)
  []
 
 
-Overfull \hbox (61.71054pt too wide) in paragraph at lines 256--263
+Overfull \hbox (61.71054pt too wide) in paragraph at lines 251--258
  [] 
  []
 
 [10] [11]
-Overfull \hbox (7.99985pt too wide) in paragraph at lines 294--295
+Overfull \hbox (7.99985pt too wide) in paragraph at lines 289--290
 \JY1/hmc/m/n/10 が \OT1/cmr/m/n/10 1440\JY1/hmc/m/n/10 ， \OT1/cmr/m/n/10 scree
 n.height \JY1/hmc/m/n/10 で取得した値が \OT1/cmr/m/n/10 900 \JY1/hmc/m/n/10 で
 あ った場合 ， \OT1/cmr/m/n/10 'screen[]size=1440x900'
  []
 
 [12]
-Overfull \hbox (73.61333pt too wide) in paragraph at lines 308--308
+Overfull \hbox (73.61333pt too wide) in paragraph at lines 303--303
 []\OT1/cmtt/m/n/10 5<>2017/12/13(Wed) 18:01<>baz<><>piyo<>\JY1/hmc/m/n/10 うう
 う\OT1/cmtt/m/n/10 <><>133.19.169.6<><>1513155668<>[] 
  []
 
 
-Overfull \hbox (73.61333pt too wide) in paragraph at lines 308--308
+Overfull \hbox (73.61333pt too wide) in paragraph at lines 303--303
 []\OT1/cmtt/m/n/10 4<>2017/12/13(Wed) 17:59<>bar<><>huga<>\JY1/hmc/m/n/10 いい
 い\OT1/cmtt/m/n/10 <><>133.19.169.6<><>1513155569<>[] 
  []
 
 
-Overfull \hbox (73.61333pt too wide) in paragraph at lines 308--308
+Overfull \hbox (73.61333pt too wide) in paragraph at lines 303--303
 []\OT1/cmtt/m/n/10 3<>2017/12/13(Wed) 17:51<>foo<><>hoge<>\JY1/hmc/m/n/10 ああ
 あ\OT1/cmtt/m/n/10 <><>133.19.169.6<><>1513155083<>[] 
  []
 
 
-Overfull \hbox (61.49661pt too wide) in paragraph at lines 308--308
+Overfull \hbox (61.49661pt too wide) in paragraph at lines 303--303
 []\OT1/cmtt/m/n/10 2<>2017/12/13(Wed) 17:51<>xxx<><>xxx<>test<><>133.19.169.6<>
 <>1513155081<>[] 
  []
 
 
-Overfull \hbox (83.47461pt too wide) in paragraph at lines 308--308
+Overfull \hbox (83.47461pt too wide) in paragraph at lines 303--303
 []\OT1/cmtt/m/n/10 1<>2017/12/13(Wed) 17:50<>\JY1/hmc/m/n/10 なまえ\OT1/cmtt/m/
 n/10 <><>\JY1/hmc/m/n/10 無題\OT1/cmtt/m/n/10 <>\JY1/hmc/m/n/10 テスト\OT1/cmtt
 /m/n/10 <><>133.19.169.6<><>1513155034<>[] 
  []
 
 [13] [14]
-Overfull \hbox (3.19945pt too wide) in paragraph at lines 361--362
+Overfull \hbox (3.19945pt too wide) in paragraph at lines 356--357
 []\JY1/hmc/m/n/10 暗号化されたセ ッシ ョン情報の復号には ， \OT1/cmr/m/n/10 rai
 ls-session-decoder \JY1/hmc/m/n/10 という \OT1/cmr/m/n/10 Node.js
  []
@@ -341,7 +341,7 @@ ls-session-decoder \JY1/hmc/m/n/10 という \OT1/cmr/m/n/10 Node.js
 第 5 章
 File: figures/account_registration_screenshot.png Graphic file (type bmp)
 <figures/account_registration_screenshot.png>
-Overfull \hbox (42.88582pt too wide) in paragraph at lines 390--391
+Overfull \hbox (42.88582pt too wide) in paragraph at lines 383--384
  [] 
  []
 
@@ -349,77 +349,77 @@ Overfull \hbox (42.88582pt too wide) in paragraph at lines 390--391
 
 ] [18]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 413.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 406.
  [19] [20] [21]
-Overfull \hbox (18.31981pt too wide) in paragraph at lines 471--472
+Overfull \hbox (18.31981pt too wide) in paragraph at lines 464--465
 []\JY1/hmc/m/n/10 上記 \OT1/cmr/m/n/10 Cookie \JY1/hmc/m/n/10 は ， \OT1/cmtt/m
 /n/10 _mastodon_session \JY1/hmc/m/n/10 と\OT1/cmtt/m/n/10 _session_id \JY1/hmc
 /m/n/10 と \OT1/cmtt/m/n/10 remember_user_token
  []
 
 
-Overfull \hbox (3.74712pt too wide) in paragraph at lines 484--484
+Overfull \hbox (3.74712pt too wide) in paragraph at lines 477--477
 []  \OT1/cmtt/m/n/10 "warden.user.user.key":[[3],"$2a$10$0mzEBQz4pTxm8B5R9t1aOe
 "],[] 
  []
 
 
-Overfull \hbox (3.74712pt too wide) in paragraph at lines 484--484
+Overfull \hbox (3.74712pt too wide) in paragraph at lines 477--477
 []  \OT1/cmtt/m/n/10 "user_return_to":"/button?text=%e6%8e%b2%e7%a4%ba%e6%9d%bf
 %e3[] 
  []
 
 
-Overfull \hbox (3.74712pt too wide) in paragraph at lines 484--484
+Overfull \hbox (3.74712pt too wide) in paragraph at lines 477--477
 []  \OT1/cmtt/m/n/10 %81%8b%e3%82%89%e3%81%93%e3%82%93%e3%81%ab%e3%81%a1%e3%81%
 af%[] 
  []
 
 [22]
-Overfull \hbox (86.92966pt too wide) in paragraph at lines 550--551
+Overfull \hbox (86.92966pt too wide) in paragraph at lines 543--544
  [] 
  []
 
 [23] [24]
-Overfull \hbox (14.55644pt too wide) in paragraph at lines 577--578
+Overfull \hbox (14.55644pt too wide) in paragraph at lines 570--571
  [] 
  []
 
 [25] [26]
-Underfull \hbox (badness 4229) in paragraph at lines 619--620
+Underfull \hbox (badness 4229) in paragraph at lines 612--613
 []\OT1/cmr/m/n/10 Japan Perl As-so-ci-a-tion\JY1/hmc/m/n/10 ， \OT1/cmr/m/n/10 
 Perl \JY1/hmc/m/n/10 の組み込み関数 \OT1/cmr/m/n/10 lo-cal-time \JY1/hmc/m/n/10
  の翻訳
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 620--621
+Underfull \hbox (badness 10000) in paragraph at lines 613--614
 []\OT1/cmr/m/n/10 Rails \JY1/hmc/m/n/10 のセ ッシ ョン管理方法について
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 620--621
+Underfull \hbox (badness 10000) in paragraph at lines 613--614
 \OT1/cmtt/m/n/10 <http://shindolog.hatenablog.com/entry/2014/11/02/164118>
  []
 
 
-Overfull \hbox (57.91438pt too wide) in paragraph at lines 621--622
+Overfull \hbox (57.91438pt too wide) in paragraph at lines 614--615
 []\OT1/cmr/m/n/10 rails-session-decoder \OT1/cmtt/m/n/10 <https://www.npmjs.com
 /package/rails-session-decoder>
  []
 
 LaTeX Font Info:    Font shape `JT1/utfj/m/0' will be
-(Font)              scaled to size 9.6222pt on input line 622.
+(Font)              scaled to size 9.6222pt on input line 615.
 LaTeX Font Info:    Font shape `JY1/utfj/m/0' will be
-(Font)              scaled to size 9.6222pt on input line 622.
+(Font)              scaled to size 9.6222pt on input line 615.
 
-Underfull \hbox (badness 10000) in paragraph at lines 622--623
+Underfull \hbox (badness 10000) in paragraph at lines 615--616
 []\OT1/cmr/m/n/10 Release v2.1.0 \JY1/utfj/m/0/10 牙 \OT1/cmr/m/n/10 toot-suit-
 e/-mastodon
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 622--623
+Underfull \hbox (badness 10000) in paragraph at lines 615--616
 \OT1/cmtt/m/n/10 <https://github.com/tootsuite/mastodon/releases/tag/v2.1.0>
  []
 
