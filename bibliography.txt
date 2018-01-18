@@ -1,9 +1,0 @@
-【参考文献まとめ】
-
-※ もう参考文献を貼り方がわかったので，ここに書かずに直接Texに書いたほうがいいかも
-
-・TwitterとFacebookの利用者数
-https://find-model.jp/insta-lab/sns-users/
-
-・kent-web
-http://www.kent-web.com/bbs/
