@@ -364,7 +364,7 @@ decoder.decodeCookie(cookie, (err, data) => {
 \section{実験手順}
 本研究では，SNSのシェアボタンを読み込む際に送信されるCookieから，SNSのアカウントを特定する実験を行った．本実験の目的は，Webサイトに設置されているSNSシェアボタンを利用した，SNSのアカウントの特定可能性を検証するためである．本実験では，TwitterやFacebookに代わるSNSとして，Mastodonを利用した．
 
-本実験を被験者として，立命館大学情報理工学部サイバーセキュリティ研究室に所属する学部生15名に協力を仰いだ．被験者15名には，本研究で用意した匿名掲示板とSNSサイトに対して，以下の事柄を実行してもらった．
+本実験を被験者として，立命館大学情報理工学部サイバーセキュリティ研究室に所属する学部生15名に協力してもらった．被験者15名には，本研究で用意した匿名掲示板とSNSサイトに対して，以下の事柄を実行してもらった．
 
 \begin{enumerate}
 \item{Mastodonアカウントの作成}
@@ -647,7 +647,7 @@ IPアドレスによる特定の場合，様々なネットワークに切り替
 本実験は学内で行ったため，学内ネットワークを使用する被験者が比較的多かった．
 %ネットワークは組織レベルだけど，Cookieはブラウザ・端末レベルだからより細かい追跡ができる的なことをメリット的な感じで書きたい．ほとんど学内のWi-Fiからのアクセスでも特定できたことを何かしらのメリットとして書く
 
-% 考察を書きましょう！
+\section{評価}
 
 
 
@@ -655,6 +655,58 @@ IPアドレスによる特定の場合，様々なネットワークに切り替
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{結論}
+\section{まとめ}
+% 最近のWebサイトではSNSシェアボタンを設置しているところも多いので役に立つんじゃなかろうか
+近年のWebサイト，とりわけニュースサイトやブログサイトでは，閲覧者に記事を広めてもらうために，SNSシェアボタンを設置するケースが珍しくない．本実験により，SNSシェアボタンを読み込む際に送信されるCookieが個人を特定するのに十分な情報であることがわかったため，サイバー犯罪の犯人特定に有効であると考えられる．
+
+% サードパーティCookieはCookieの中でも送信していることに気づきにくいため追跡する手法として有用である
+Cookieはユーザを追跡する用途で使用されることもある．例として，以前にそのWebサイトにアクセスしたユーザであるかどうかを特定することができる．その中でも，サードパーティCookieはユーザがアクセスしているWebサイトとは異なるWebサイトに送信されるCookieであるため，ユーザが情報を収集されていることに気づきにくい．本実験では，15名の被験者のうち，13名のCookieを収集し，特定することができた．
+
+% またサイバー犯罪の被害を受けたサーバに残った情報(ログなど)だけでなく外部のSNSと協力することでより特定率が大きくなるのではなかろうか
+サイバー犯罪が発生した際に，Webサーバに残る情報だけでは犯人を特定することができない場合もある．サイバー犯罪の被害を受けたサーバに記録された情報(Webサーバのログなど)だけでなく，SNSの運営側と協力することで，犯人特定可能性がより大きくなるのではないかと考えられる．
+
+% 今回の実験ではSNSとの協力を主軸に置いたがたとえば広告業者と協力することでも犯人特定できるんじゃないかな
+本実験では，外部に起因する情報としてSNSシェアボタンを採用した．近年のWebサイトでは，SNSシェアボタンの他に，広告を設置しているものが多く見受けられる．外部の広告業者の広告を掲載している場合は，SNSシェアボタンと同様に，広告を運営するサービスのサーバにCookieが送信される．実際に，広告業者はユーザが興味のある広告を提供するためにCookieを使用している\cite{third_party_cookie_is_danger}．サイバー犯罪の犯人の特定においては，ユーザビリティ向上の目的で使用されている広告のCookieを解析することで，犯人に関する情報を収集することが可能であると考えられる．SNSシェアボタンの代わりに広告のCookieを利用することでも，本実験と同様の手法を実現することができるといえる．
+
+% ところがサードパーティCookieを無効にすることも可能であるため他の情報と組み合わせて捜査することが肝要である
+\section{今後の課題}
+本研究の提案手法の欠点として，ブラウザの設定や拡張機能などによりサードパーティCookieを無効にしている場合，個人を特定することができなかった点が挙げられる．サードパーティCookieは，ファーストパーティCookieとは異なり，ブロックしてもブラウジングの利便性が損なわれることが少ない．そのため，プライバシー保護の目的でサードパーティCoookieをブロックする設定がブラウザに用意されていると考えられる．
+
+サードパーティCookieの代わりにブラウザフィンガープリンティングを利用することでこの問題が解決されるのではないかと予想できる．ブラウザフィンガープリントはJavaScriptを使用して取得することが多い．JavaScriptは近年のほとんどのWebサイトで使用されているため，ファーストパーティCookieと同様に，ブロックすると利便性が損なわれる．外部リソース(本実験ではSNSシェアボタン)を読み込む際に，Cookieを送信させる代わりにJavaScriptを実行させてブラウザフィンガープリントを取得することで，犯人を特定する情報が得られるのではないかと考えられる．
+
+本実験で取得したブラウザフィンガープリントは画面サイズのみであったが，その他にも様々な特徴点を持つブラウザフィンガープリントが存在する\cite{kind_of_fingerprints}．ブラウザフィンガープリンティングはプライバシーの観点から脅威とされることも多いが，サイバー犯罪においては犯人を特定する有力な情報となり得る．ユーザ側でサードパーティCookieをブロックされた場合でも，ブラウザフィンガープリンティングなどを利用してサイバー犯罪の犯人を特定できるようにすることが，本研究の今後の課題である．
+
+
+
+
+
+
+
+
+
+
+% 事務に提出するプリントを印刷するときにアンコメントする
+\begin{comment}
+\chapter*{謝辞}
+\noindent
+本研究を遂行するにあたり，立命館大学情報理工学部情報システム学科サイバーセキュリティ研究室の上原哲太郎教授には，数々のご指導を賜りました．この場を借りて厚く御礼申し上げます．また，本研究の実験にご協力くださったサイバーセキュリティ研究室の皆様のおかげで本稿を執筆することができました．この場を借りて感謝申し上げます．
+\end{comment}
 
 
 
@@ -686,13 +738,38 @@ IPアドレスによる特定の場合，様々なネットワークに切り替
 % \bibitem{引用する番号を付与する際のキーとなる文字列} 著者名(団体名)，ウェブサイトの題名 \verb|<URL>| (最終閲覧日: xxxx年xx月xx日）
 % \bibitem{test} 特定非営利活動法人デジタル・フォレンジック研究会，デジタルフォレンジックとは \verb|<https://digitalforensic.jp/home/what-df/>| (最終閲覧日: 2015年12月24日)
 \begin{thebibliography}{n}
-\bibitem{localtime} Japan Perl Association，Perlの組み込み関数 localtime の翻訳 \verb|<http://perldoc.jp/func/localtime>| (最終閲覧日: 2018年1月13日)
-\bibitem{rails_session_is_encrypted} Railsのセッション管理方法について \verb|<http://shindolog.hatenablog.com/entry/2014/11/02/164118>| (最終閲覧日: 2018年1月13日)
-\bibitem{npm_rails_session_decoder} rails-session-decoder \verb|<https://www.npmjs.com/package/rails-session-decoder>| (最終閲覧日: 2018年1月13日)
-\bibitem{invite_system} Release v2.1.0 \UTF{00B7} tootsuite/mastodon \verb|<https://github.com/tootsuite/mastodon/releases/tag/v2.1.0>| (最終閲覧日: 2018年1月14日)
-\bibitem{what_is_third_party_cookie} デジタルマーケティングラボ，サードパーティクッキー（3rd Party Cookie）とは \verb|https://dmlab.jp/words/e024.html| (最終閲覧日: 2018年1月18日)
-\bibitem{third_party_cookie_is_danger} ASCII.jp，「サードパーティクッキー」が危険な理由を正しく知りましょう \verb|http://ascii.jp/elem/000/000/654/654929/| (最終閲覧日: 2018年1月18日)
-\bibitem{how_to_disable_third_party_cookie_on_firefox} Firefox ヘルプ，サードパーティ Cookie を禁止する \verb|https://support.mozilla.org/ja/kb/disable-third-party-cookies| (最終閲覧日: 2018年1月18日)
+
+\bibitem{localtime} Japan Perl Association，Perlの組み込み関数 localtime の翻訳\\
+\verb|<http://perldoc.jp/func/localtime>|\\
+(最終閲覧日: 2018年1月13日)
+
+\bibitem{rails_session_is_encrypted} Railsのセッション管理方法について\\
+\verb|<http://shindolog.hatenablog.com/entry/2014/11/02/164118>|\\
+(最終閲覧日: 2018年1月13日)
+
+\bibitem{npm_rails_session_decoder} rails-session-decoder\\
+\verb|<https://www.npmjs.com/package/rails-session-decoder>|\\
+(最終閲覧日: 2018年1月13日)
+
+\bibitem{invite_system} Release v2.1.0 \UTF{00B7} tootsuite/mastodon\\
+\verb|<https://github.com/tootsuite/mastodon/releases/tag/v2.1.0>|\\
+(最終閲覧日: 2018年1月14日)
+
+\bibitem{what_is_third_party_cookie} デジタルマーケティングラボ，サードパーティクッキー（3rd Party Cookie）とは\\
+\verb|https://dmlab.jp/words/e024.html|\\
+(最終閲覧日: 2018年1月18日)
+
+\bibitem{third_party_cookie_is_danger} ASCII.jp，「サードパーティクッキー」が危険な理由を正しく知りましょう\\
+\verb|http://ascii.jp/elem/000/000/654/654929/|\\
+(最終閲覧日: 2018年1月18日)
+
+\bibitem{how_to_disable_third_party_cookie_on_firefox} Firefox ヘルプ，サードパーティ Cookie を禁止する\\
+\verb|https://support.mozilla.org/ja/kb/disable-third-party-cookies|\\
+(最終閲覧日: 2018年1月18日)
+
+\bibitem{kind_of_fingerprints} 明治大学 情報セキュリティ研究室，Web Browser Fingerprint解説ページ\\
+\verb|https://www.saitolab.org/fp_site/|\\
+(最終閲覧日: 2018年1月19日)
 
 \end{thebibliography}
 % ============================
