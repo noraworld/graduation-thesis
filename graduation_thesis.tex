@@ -719,7 +719,7 @@ Firefox 57の場合，\verb|about:preferences#privacy|にアクセスし，履�
 	\label{fig: disable_third_party_cookie_on_firefox}
 \end{figure}
 
-また，サードパーティCookieをブロックする拡張機能やアドオンも存在する．たとえば，Ghosteryはトラッキングツールや解析ツールをブロックする拡張機能として有名であり，Google ChromeやFirefoxのほか，ほとんどのモダンWebブラウザで利用可能である．Ghosteryをインストールしたブラウザで匿名掲示板にアクセスして，Mastodonインスタンスのデータベースを調べたところ，Cookieが送信されていないことがわかった．Ghosteryを無効にして再度確認するとサードパーティCookieが送信されたことから，GhosteryはサードパーティCookieのブロック機能が実装されていることがわかる．
+また，サードパーティCookieをブロックする拡張機能やアドオンも存在する．たとえば，Ghosteryはトラッキングツールや解析ツールをブロックする拡張機能として有名であり，Google ChromeやFirefoxのほか，ほとんどのモダンWebブラウザで利用可能である\cite{ghostery}．Ghosteryをインストールしたブラウザで匿名掲示板にアクセスして，Mastodonインスタンスのデータベースを調べたところ，Cookieが送信されていないことがわかった．Ghosteryを無効にして再度確認するとサードパーティCookieが送信されたことから，GhosteryはサードパーティCookieのブロック機能が実装されていることがわかる．
 
 このように，ユーザ側でサードパーティCookieをブロックしていると，本研究の手法ではSNSのアカウントを特定できないことがわかった．本実験において，アカウントを特定することができなかった被験者2名は，いずれもブラウザの設定でサードパーティCookieをブロックする機能を有効にしていた．Mastodonアカウントにログインした状態にもかかわらずCookieが送信されなかったのは，ブラウザによるサードパーティCookieのブロックが原因であると考えられる．
 
@@ -790,7 +790,7 @@ Cookieはユーザを追跡する用途で使用されることもある．例�
 
 サードパーティCookieの代わりにブラウザフィンガープリンティングを利用することでこの問題が解決されるのではないかと予想できる．ブラウザフィンガープリントはJavaScriptを使用して取得することが多い．JavaScriptは近年のほとんどのWebサイトで使用されているため，ファーストパーティCookieと同様に，ブロックすると利便性が損なわれる．外部リソース(本実験ではSNSシェアボタン)を読み込む際に，Cookieを送信させる代わりにJavaScriptを実行させてブラウザフィンガープリントを取得することで，犯人を特定する情報が得られるのではないかと考えられる．
 
-本実験で取得したブラウザフィンガープリントは画面サイズのみであったが，その他にも様々な特徴点を持つブラウザフィンガープリントが存在する\cite{kind_of_fingerprints}．ブラウザフィンガープリンティングはプライバシーの観点から脅威とされることも多いが，サイバー犯罪においては犯人を特定する有力な情報となり得る．ユーザ側でサードパーティCookieをブロックされた場合でも，ブラウザフィンガープリンティングなどを利用してサイバー犯罪の犯人を特定できるようにすることが，本研究の今後の課題である．
+本実験で取得したブラウザフィンガープリントは画面サイズのみであったが，その他にも様々な特徴点を持つブラウザフィンガープリントが存在する\cite{kind_of_fingerprints}\cite{canvas_fingerprinting}．ブラウザフィンガープリンティングはプライバシーの観点から脅威とされることも多いが，サイバー犯罪においては犯人を特定する有力な情報となり得る．ユーザ側でサードパーティCookieをブロックされた場合でも，ブラウザフィンガープリンティングなどを利用してサイバー犯罪の犯人を特定できるようにすることが，本研究の今後の課題である．
 
 
 
@@ -909,9 +909,17 @@ Cookieはユーザを追跡する用途で使用されることもある．例�
 \verb|https://support.mozilla.org/ja/kb/disable-third-party-cookies|\\
 (最終閲覧日: 2018年1月18日)
 
+\bibitem{ghostery} Ghostery，Ghostery Makes the Web Cleaner, Faster and Safer!\\
+\verb|https://www.ghostery.com|\\
+(最終閲覧日: 2018年1月22日)
+
 \bibitem{kind_of_fingerprints} 明治大学 情報セキュリティ研究室，Web Browser Fingerprint解説ページ\\
 \verb|https://www.saitolab.org/fp_site/|\\
 (最終閲覧日: 2018年1月19日)
+
+\bibitem{canvas_fingerprinting} BPS株式会社，Canvas Fingerprintingはクッキーより怖いのか技術的に調べてみた\\
+\verb|https://techracho.bpsinc.jp/morimorihoge/2014_07_29/18555|\\
+(最終閲覧日: 2018年1月22日)
 
 \end{thebibliography}
 % ============================
