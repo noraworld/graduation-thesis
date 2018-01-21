@@ -279,7 +279,7 @@ sub track {
 本研究では，SNSのアカウントを特定する実験を行うためのシステムとして，Mastodonを利用した．本来のサイバー犯罪においては，TwitterやFacebookなどの，世界的に利用されているSNSの運営と協力して犯人のアカウントを特定することを想定しているが，本研究の実験では，TwitterやFacebookのサーバ内の情報を閲覧することはできない．そこで，個人で運営することができる，Twitterに似たSNSであるMastodonを利用することで，シェアボタンを読み込む際に送信されるCookieからMastodonのアカウントを特定する実験を行った．送信されるCookieからアカウントを特定することは，TwitterやFacebookにおいても技術的に可能であるため，実際のサイバー犯罪ではTwitterやFacebookなどの運営と協力することで，犯人のアカウントが特定できるであろう．
 
 \subsection*{Mastodon}
-Mastodonとは，ドイツ人のEugen Rochko氏が，2016年2月に開発を開始した，分散型SNSのことである．Twitterに似た機能を持つSNSとして日本でも注目を集めている．オープンソースソフトウェアとしてGitHub上に公開されており，誰でも自由にプログラムを利用することができる．
+Mastodonとは，ドイツ人のEugen Rochko氏が，2016年2月に開発を開始した，分散型SNSのことである\cite{what_is_mastodon}．Twitterに似た機能を持つSNSとして日本でも注目を集めている．オープンソースソフトウェアとしてGitHub上に公開されており，誰でも自由にプログラムを利用することができる．
 
 TwitterやFacebookとは異なり，Mastodonはプログラムを改変することができ，また改変したプログラムをサーバ上に置いて運営することもできる．Mastodonは分散型SNSであり，個人や団体，企業などが運営するため，複数のサーバが存在する．Mastodonが運営されている各々のサーバのことを，Mastodonのインスタンスと呼ぶ．GitHubからダウンロードしたMastodonのプログラムに，本研究の実験に必要な機能を実装して利用した．
 
@@ -835,6 +835,10 @@ Cookieはユーザを追跡する用途で使用されることもある．例�
 \bibitem{kent_web_bbs} KENT-WEB，LIGHT BOARD ノーマル掲示板\\
 \verb|http://www.kent-web.com/bbs/light.html|\\
 (最終閲覧日: 2018年1月19日)
+
+\bibitem{what_is_mastodon} tootsuite/mastodon: Your self-hosted, globally interconnected microblogging community\\
+\verb|https://github.com/tootsuite/mastodon|\\
+(最終閲覧日: 2018年1月20日)
 
 \bibitem{localtime} Japan Perl Association，Perlの組み込み関数 localtime の翻訳\\
 \verb|http://perldoc.jp/func/localtime|\\
