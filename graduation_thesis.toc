@@ -19,7 +19,7 @@
 \contentsline {subsection}{\numberline {4.2.2}送信されたCookieを保存する機能の実装}{16}
 \contentsline {subsection}{\numberline {4.2.3}ブラウザフィンガープリンティングの実装}{17}
 \contentsline {section}{\numberline {4.3}実験用ツール}{18}
-\contentsline {subsection}{\numberline {4.3.1}UNIXタイム変換ツール}{19}
+\contentsline {subsection}{\numberline {4.3.1}UNIXタイム変換ツール}{18}
 \contentsline {subsection}{\numberline {4.3.2}Railsセッションデコーダ}{20}
 \contentsline {chapter}{\numberline {第5章}実験}{23}
 \contentsline {section}{\numberline {5.1}実験手順}{23}
@@ -37,7 +37,6 @@
 \contentsline {chapter}{\numberline {第6章}評価と考察}{33}
 \contentsline {section}{\numberline {6.1}考察}{33}
 \contentsline {subsection}{\numberline {6.1.1}Cookieが送信されない原因に対する考察}{33}
-\contentsline {subsubsection}{サードパーティCookieのブロック}{33}
 \contentsline {subsection}{\numberline {6.1.2}異なる情報を送信した場合の特定可能性における考察}{35}
 \contentsline {section}{\numberline {6.2}評価}{35}
 \contentsline {chapter}{\numberline {第7章}結論}{37}
