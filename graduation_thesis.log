@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2016.5.15)  22 JAN 2018 09:34
+This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2016.5.15)  22 JAN 2018 09:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -177,6 +177,27 @@ LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
 (Font)              scaled to size 9.6222pt on input line 40.
 \c@lstlisting=\count110
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 16.62714pt on input line 41.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 16.62714pt on input line 41.
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 13.85594pt on input line 41.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 13.85594pt on input line 41.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 41.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 41.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 6.73553pt on input line 41.
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 41.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 41.
+ [1
+
+]
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
 (Font)              scaled to size 19.95642pt on input line 44.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
 (Font)              scaled to size 19.95642pt on input line 44.
@@ -198,15 +219,10 @@ LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <10> not available
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 9.6222pt on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 3.
-LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 3.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
 (Font)              scaled to size 4.8111pt on input line 3.
  [1
-
 
 ])
 \tf@toc=\write4
@@ -218,10 +234,6 @@ LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
 
 ] [2]
 第 2 章
-LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 80.
-LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 80.
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <14.4> not available
 (Font)              Font shape `JT1/hgt/m/n' tried instead on input line 80.
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
@@ -230,10 +242,6 @@ LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <14.4> not available
 (Font)              Font shape `JY1/hgt/m/n' tried instead on input line 80.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 13.85594pt on input line 80.
-LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 85.
-LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 85.
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <12> not available
 (Font)              Font shape `JT1/hgt/m/n' tried instead on input line 85.
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
@@ -457,12 +465,12 @@ s
 Excluding 'comment' comment. Excluding 'comment' comment. [38]
 (./graduation_thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 4119 strings out of 493717
- 55090 string characters out of 6150720
- 161888 words of memory out of 5000000
- 7639 multiletter control sequences out of 15000+600000
- 13884 words of font info for 69 fonts, out of 8000000 for 9000
+ 4126 strings out of 493717
+ 55198 string characters out of 6150720
+ 161975 words of memory out of 5000000
+ 7645 multiletter control sequences out of 15000+600000
+ 15000 words of font info for 74 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  27i,12n,32p,920b,1594s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on graduation_thesis.dvi (40 pages, 142168 bytes).
+Output written on graduation_thesis.dvi (41 pages, 142984 bytes).
