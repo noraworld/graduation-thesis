@@ -268,6 +268,14 @@ LIGHT BOARDは，書込み時に名前の入力が必須であるが，同一ユ
 
 初めて匿名掲示板にアクセスしてきたユーザには，サーバ側で生成したランダムな文字列をCookieとして付与する．2回目以降にアクセスしてきたユーザ(ブラウザ)は，初めてアクセスした際に付与されたCookieをサーバに送信するため，以前にアクセスしたことがあることがサーバ側でわかる．したがって，複数の書込みを行ったユーザは，書込みを行う際に送信しているCookieが同じであるため，同一人物による書込みであることがわかる．
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=100mm]{figures/user_tracking_cookie.pdf}
+	\end{center}
+	\caption{同一ユーザを特定する仕組み}
+	\label{fig: user_tracking_cookie}
+\end{figure}
+
 ユーザを追跡するためのCookieを付与する機能に該当する箇所をソースコード\ref{track}に示す．
 
 \begin{lstlisting}[caption=同一ユーザ特定機能,label=track]
