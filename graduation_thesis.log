@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2016.5.15)  22 JAN 2018 22:35
+This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2016.5.15)  23 JAN 2018 20:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -323,6 +323,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \OT1/cmr/m/n/10 Ap-pleWe-bKit/537.36 (KHTML, like Gecko)
  []
 
+
+Overfull \hbox (7.1051pt too wide) in paragraph at lines 366--367
+\JY1/hmc/m/n/10 合 ， ブラウザがサイト \OT1/cmr/m/n/10 A \JY1/hmc/m/n/10 に対し
+て送信するリフ ァラは \OT1/cmr/m/n/10 https://www.google.co.jp/
+ []
+
 [16]
 File: figures/fingerprint.pdf Graphic file (type pdf)
  <figures/fingerprint.pdf> [17]
@@ -439,12 +445,12 @@ s
 [40] Excluding 'comment' comment. Excluding 'comment' comment. [41]
 (./graduation_thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 4133 strings out of 493717
- 55424 string characters out of 6150720
- 196998 words of memory out of 5000000
- 7651 multiletter control sequences out of 15000+600000
+ 4135 strings out of 493717
+ 55467 string characters out of 6150720
+ 197015 words of memory out of 5000000
+ 7653 multiletter control sequences out of 15000+600000
  15000 words of font info for 74 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  27i,12n,32p,1176b,1222s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on graduation_thesis.dvi (45 pages, 152440 bytes).
+Output written on graduation_thesis.dvi (45 pages, 152604 bytes).
